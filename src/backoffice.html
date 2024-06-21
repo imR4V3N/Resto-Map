@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resto Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="./assets/js/back.js"></script>
+</head>
+<body>
+    <div id="search-container">
+        <a href="index.html">Front Office</a>
+    </div>
+    <div id="carteId"></div>
+    <div class="copy">
+        &copy - ETU002476 - RAJAONARIMINO Antonio Sombiniaina
+    </div>
+    <div id="form-container">
+        <form id="restaurant-form" enctype="multipart/form-data">
+            <label for="name">Restaurant name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="latitude">Latitude:</label><br>
+            <input type="text" id="latitude" name="latitude" readonly><br><br>
+            <label for="longitude">Longitude:</label><br>
+            <input type="text" id="longitude" name="longitude" readonly><br><br>
+            <label for="image">Image:</label><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+            <button type="submit">Add restaurant</button>
+        </form>
+    </div>
+    <div id="menu-form-container">
+        <form id="menu-form">
+            <label for="menu_name">Menu name:</label><br>
+            <input type="text" id="menu_name" name="menu_name" required><br><br>
+            <button type="submit">Add Menu</button>
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resto Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="./assets/js/front.js"></script>
+</head>
+<body>
+    <div id="search-container">
+        <input type="text" id="search-name" placeholder="Restaurant name">
+        <input type="text" id="search-menu" placeholder="Menu name">
+        <input type="number" id="search-radius" placeholder="Search radius (km)">
+        <input type="text" id="search-location" placeholder="Location (lat, lng)">
+        <button id="search-button">Search</button>
+        <a href="backoffice.html">Back Office</a>
+    </div>
+    <div id="carteId"></div>
+    <div class="copy">
+        &copy - ETU002476 - RAJAONARIMINO Antonio Sombiniaina
+    </div>
+</body>
+</html>
