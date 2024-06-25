@@ -2,6 +2,8 @@ var carte;
 var currentRestoId;
 var searchPosition;
 var markersArray = [];
+var circle;
+var circleCenter;
 
 var icon = {
     url: './assets/image/resto.png', 
@@ -33,6 +35,7 @@ function initialize() {
     carte = new google.maps.Map(document.getElementById("carteId"), mapOptions);
     google.maps.event.addListener(carte, 'rightclick', function(event) {
         setSearchPosition(event.latLng);
+        circleCenter = event.latLng;
     });
     loadMarkers();
 }
@@ -77,6 +80,26 @@ function clearMarkers() {
         markersArray[i].setMap(null);
     }
     markersArray = [];
+}
+
+function createCircle(radius){
+    circle = new google.maps.Circle({
+        strokeColor:'#007bff',
+        strokeOpacity: 0.7,
+        strokeWeight: 2,
+        fillColor: '#4c96e6',
+        fillOpacity: 0.3,
+        map: carte,
+        center: circleCenter,
+        radius: radius * 1000
+    });
+}
+
+function deleteCircle() {
+    if (circle) {
+        circle.setMap(null);
+        circle = null;
+    }
 }
 
 function removeMarkersExceptName(exceptName) {
@@ -157,6 +180,7 @@ function searchRestaurants() {
                 throw new Error('Parsed data is not an array');
             }
 
+            deleteCircle();
             removeMarkersExceptName('Search Position');
 
             markers.forEach(function(marker) {
@@ -168,6 +192,8 @@ function searchRestaurants() {
                     icon: iconSearch
                 });
                 markersArray.push(mapMarker);
+
+                createCircle(radius);                   
 
                 var contentString = '<div id="content">'+
                     '<h1>'+ marker.name +'</h1>'+
